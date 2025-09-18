@@ -16,6 +16,6 @@ logging.basicConfig( #here we are going to save each log.
 
 
 )
-print("sksdldfds jjjjjjjjjjjjjjjjjjj")
+print("logging has started")
 if __name__=="__name__":
     logging.info("logging has started")

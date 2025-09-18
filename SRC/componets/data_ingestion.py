@@ -17,6 +17,12 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass 
 #dataclass is a decorator that automatically generates special methods for classes, such as __init__() and __repr__()
 
+from SRC.componets.data_transformation import DataTransformation #we import the data transformation class
+from SRC.componets.data_transformation import DataTransformationConfig #we import the data transformation config class
+
+from SRC.componets.model_trainer import ModelTrainerConfig #we import the model trainer config class
+from SRC.componets.model_trainer import ModelTrainer #we import the model trainer class
+
 #The DataIngestionConfig class, decorated with @dataclass, defines default file paths for the raw, training, and testing datasets. 
 # Using a dataclass here simplifies the creation and management of configuration objects by automatically generating methods like __init__.
 @dataclass
@@ -72,7 +78,14 @@ class DataIngestion:
 # integrate into larger machine learning workflows. 
 if __name__=="__main__":
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion() 
+
+    data_transformation=DataTransformation()#here we call the transformation method
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
+    modeltrainer=ModelTrainer() 
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+
 
     
 
