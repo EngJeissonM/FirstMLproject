@@ -76,6 +76,8 @@ class DataIngestion:
 #entry point check to allow the script to be run directly. 
 # This modular design makes the code reusable and easy to 
 # integrate into larger machine learning workflows. 
+print("Training the model....")
+print("The r2 score is....")
 if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion() 
@@ -84,7 +86,9 @@ if __name__=="__main__":
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
     modeltrainer=ModelTrainer() 
-    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    print("Training the model....")
+    print("The r2 score is....")
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr)) #printing the r2 score
 
 
     
