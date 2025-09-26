@@ -25,7 +25,7 @@ def save_object(file_path, obj):
 #evaluate_models function will evaluate the models we defined in model_trainer.py
 def evaluate_models(X_train, y_train,X_test,y_test,models,param):
     try:
-        report = {}
+        report = {} #to store the model name and the r2 score
 
         for i in range(len(list(models))): #iterating over the models
             model = list(models.values())[i]

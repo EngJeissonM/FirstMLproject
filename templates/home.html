@@ -1,0 +1,126 @@
+<html> <!-- templates/home.html--> 
+<body> <!-- Starting the body of the HTML document--> 
+
+    <div class="login">  <!-- # A div container with class 'login'-->  
+       <h1>Student Exam Performance Indicator</h1>
+   <!-- --> 
+       <form action="{{ url_for('predict_datapoint')}}" method="post">  <!--Form to submit data for prediction -->  
+        <h1>
+            <legend>Student Exam Performance Prediction</legend> <!--tittle -->
+        </h1>
+
+        #class for each variable: 
+        <div class="mb-3"> <!-- mb-3 is a bootstrap class for margin bottom --> 
+            <label class="form-label">Gender</label>  <!--this is a placeholder with a list of options --> 
+            <select class="form-control" name="gender" placeholder="Enter you Gender" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>  <!--here the user will see a comment on the placeholder --> 
+                <option value="male">  <!--1st option --> 
+                    Male
+                </option>
+                <option value="female"> <!--2dn option --> 
+                    Female
+                </option>
+            </select>
+        </div>
+
+        <!--etnhicity feature --> 
+        <div class="mb-3">
+            <label class="form-label">Race or Ethnicity</label> 
+            <select class="form-control" name="ethnicity" placeholder="Enter you ethnicity" required> <!--by this way, "Ethnicity" variable --> 
+                <option class="placeholder" selected disabled value="">Select Ethnicity</option> 
+                <option value="group A">
+                    Group A
+                </option>
+                <option value="group B">
+                    Group B
+                </option>
+                <option value="group C">
+                    Group C
+                </option>
+                <option value="group D">
+                    Group D
+                </option>
+                <option value="group E">
+                    Group E
+                </option>
+            </select>
+        </div>
+        
+        <!--parental level feature --> 
+        <div class="mb-3">
+            <label class="form-label">Parental Level of Education</label>
+            <select class="form-control" name="parental_level_of_education"
+                placeholder="Enter you Parent Education" required>
+                <option class="placeholder" selected disabled value="">Select Parent Education</option>
+                <option value="associate's degree">
+                    associate's degree
+                </option>
+                <option value="bachelor's degree">
+                    bachelor's degree
+                </option>
+                <option value="high school">
+                    high school
+                </option>
+                <option value="master's degree">
+                    master's degree
+                </option>
+                <option value="some college">
+                    some college
+                </option>
+                <option value="some high school">
+                    some high school
+                </option>
+            </select>
+        </div>
+        
+        <!--lunch feature --> 
+        <div class="mb-3">
+            <label class="form-label">Lunch Type</label>
+            <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
+                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
+                <option value="free/reduced">
+                    free/reduced
+                </option>
+                <option value="standard">
+                    standard
+                </option>
+            </select>
+        </div>
+        
+        <!--test preparation feature --> 
+        <div class="mb-3">
+            <label class="form-label">Test preparation Course</label>
+            <select class="form-control" name="test_preparation_course" placeholder="Enter you Course"
+                required>
+                <option class="placeholder" selected disabled value="">Select Test_course</option>
+                <option value="none">
+                    None
+                </option>
+                <option value="completed">
+                    Completed
+                </option>
+            </select>
+        </div>
+        
+        <!--wirting feature --> 
+        <div class="mb-3">
+            <label class="form-label">Writing Score out of 100</label> 
+            <input class="form-control" type="number" name="reading_score"   
+                placeholder="Enter your Reading score" min='0' max='100' />  <!--way to limit the number between 0 and 100 --> 
+        </div>
+
+        <!--reading feature --> 
+        <div class="mb-3">
+            <label class="form-label">Reading Score out of 100</label>
+            <input class="form-control" type="number" name="writing_score"
+                placeholder="Enter your Reading Score" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
+        </div>
+    </form>
+    <h2>
+       The  prediction is {{results}} <!--by this way,we call results--> 
+    </h2>
+   <body>
+</html>
