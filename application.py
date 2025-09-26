@@ -12,11 +12,11 @@ app=application # Assigning the Flask application to a variable 'app'
 
 ## Route for a home page
 
-@app.route('/') 
-def index():
-    return render_template('index.html')  # Rendering the index.html template for the home page
+#@app.route('/') 
+#def index():
+#   return render_template('index.html')  # Rendering the index.html template for the home page
 
-@app.route('/predictdata',methods=['GET','POST']) # Defining a route for handling data prediction
+@app.route('/',methods=['GET','POST']) # Defining a route for handling data prediction
 
 def predict_datapoint():
     if request.method=='GET': # If the request method is GET, render the home.html template
